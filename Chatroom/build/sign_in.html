@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatroom</title>
+    <link rel="shortcut icon" href="#">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/sign.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script> -->
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-functions.js"></script>
+
+    <!-- jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+
+    <!-- configuration -->
+    <script src="./js/config.js"></script>
+
+    <!-- <script src="./js/sign.js"></script> -->
+  </head>
+
+  <!--<body>
+      <p id="title">Sign in</p>
+
+      <div id="main">
+        <label>E-mail</label>
+        <input type="text" id="email" name="email"><br>
+        <label>Password</label>
+        <input type="password" id="password" name="password"><br>
+        <button onclick="SignIn();">Sign in</button>  
+      </div>
+      
+      <button onclick="SignInWithGoogle();">Sign in with Google</button>
+      <div id="other">
+        <label>Don't have an account yet?&nbsp;</label><a href="./sign_up.html">Sign up</a>
+      </div>
+  </body>-->
+  <body class="text-center">     
+    <!-- <div id="timer"></div> -->
+    <div id="custom-alert">
+    </div>
+    <div class="form-signin">
+      <!--<img class="mb-4" src="img/pic2-01.png" alt="" height="108">-->
+      <p class="h1 mb-5 font-weight-normal" id="animation">Welcome To My Chatroom !!!</p> <!--h1 style="color: #540685;"-->
+      <h2 class="h3 mb-3 font-weight-normal" style="color: #903838;">Sign in</h1>
+      <!--<label for="inputName" class="sr-only">User Name</label>
+      <input type="text" id="inputName" class="form-control" placeholder="User Name" required >-->
+      <label for="inputEmail" class="sr-only">Email Address</label>
+      <input type="email" id="email" class="form-control" placeholder="Email Address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Password" required>
+      <!--<div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>-->
+      <button class="btn btn-lg btn-primary btn-block" id="btnSignIn">Sign in</button><!--onclick="SignIn();"-->
+      <button class="btn btn-lg btn-success btn-block" onclick="GoToSignUp();">Sign up</button><!--onclick="SignUp();"-->
+      <button class="btn btn-lg btn-danger btn-block" id="btnGoogle">Sign in with Google</button><!--onclick="SignInWithGoogle();"-->
+      <div id="timer"></div>
+      <!--<p class="mt-5 mb-3 text-muted">by Eric Su</p>-->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="./js/sign_in.js"></script>
+    <script src="./js/sign_in_react.js" type="text/babel"></script>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="react/components/post-comments.js" type="text/babel"></script>
+  </body>
+</html>
